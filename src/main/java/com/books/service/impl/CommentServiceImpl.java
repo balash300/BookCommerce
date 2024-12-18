@@ -38,8 +38,8 @@ public class CommentServiceImpl implements CommentService {
         return commentRepository.findByBook(book);
     }
 
-    @Transactional
     @Override
+    @Transactional
     public Comment addComment(CommentDTO commentDTO) {
         Long bookId = commentDTO.getBookId();
         Long userId = commentDTO.getUserId();

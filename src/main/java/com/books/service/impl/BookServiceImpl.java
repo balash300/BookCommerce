@@ -48,6 +48,7 @@ public class BookServiceImpl implements BookService {
                 .author(bookDTO.getAuthor())
                 .price(bookDTO.getPrice())
                 .category(category)
+                .imageURL(bookDTO.getImageURL())
                 .build();
 
         return bookRepository.save(book);

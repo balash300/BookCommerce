@@ -8,9 +8,7 @@ import java.util.List;
 
 public interface CommentService {
     List<Comment> getCommentsByBookId(Long bookId);
-
-    Comment addComment(CommentDTO commentDTO);
-
     List<Comment> addComments(List<CommentDTO> commentDTOs);
+    Comment addComment(CommentDTO commentDTO);
     void deleteComment(Long id);
 }

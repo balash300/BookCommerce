@@ -4,7 +4,16 @@ public class BookDTO {
     private String title;
     private String author;
     private Double price;
+    private String imageURL;
     private Long categoryId;
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
 
     public String getTitle() {
         return title;

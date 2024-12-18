@@ -2,7 +2,6 @@ package com.books.controller;
 
 import com.books.model.Order;
 import com.books.service.OrderService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,12 +15,12 @@ public class OrderController {
     }
 
     @PostMapping
-    public ResponseEntity<Order> createOrder(@RequestBody Order order) {
-        return ResponseEntity.ok(orderService.createOrder(order));
+    public Order createOrder(@RequestBody Order order) {
+        return orderService.createOrder(order);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Order> getOrderById(@PathVariable Long id) {
-        return ResponseEntity.ok(orderService.getOrderById(id));
+    public Order getOrderById(@PathVariable Long id) {
+        return orderService.getOrderById(id);
     }
 }

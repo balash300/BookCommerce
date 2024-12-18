@@ -1,6 +1,5 @@
 package com.books.repository;
 
-import com.books.model.Book;
 import com.books.model.BookCategory;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

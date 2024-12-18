@@ -25,6 +25,7 @@ public class Order {
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems;
 
+    @Column(name = "total_amount")
     private Double totalAmount;
 
     public Long getId() {

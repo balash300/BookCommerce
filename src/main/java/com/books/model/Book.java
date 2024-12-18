@@ -11,6 +11,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "books")
 public class Book {
 
     @Id
@@ -20,6 +21,10 @@ public class Book {
     private String title;
     private String author;
     private Double price;
+    @Column(name = "image_url")
+    private String imageURL;
+    @Column(name = "is_active")
+    private Boolean isActive;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
@@ -31,12 +36,39 @@ public class Book {
     @OneToMany(mappedBy = "book")
     private List<OrderItem> orderItems;
 
+    @OneToMany(mappedBy = "book")
+    private List<CartItem> cartItems;
+
     public List<OrderItem> getOrderItems() {
         return orderItems;
     }
 
     public void setOrderItems(List<OrderItem> orderItems) {
         this.orderItems = orderItems;
+    }
+
+    public Boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Boolean active) {
+        isActive = active;
+    }
+
+    public List<CartItem> getCartItems() {
+        return cartItems;
+    }
+
+    public void setCartItems(List<CartItem> cartItems) {
+        this.cartItems = cartItems;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 
     public Long getId() {
