@@ -10,4 +10,6 @@ public interface BookService {
     Book getBookById(Long id);
     Book createBook(BookDTO bookDTO);
     void deleteBook(Long id);
+
+    void updateIsActiveBook(Long bookId, boolean isActive);
 }

@@ -8,6 +8,7 @@ import com.books.model.CartItem;
 import com.books.repository.BookRepository;
 import com.books.repository.CartItemRepository;
 import com.books.repository.CartRepository;
+import com.books.service.BookService;
 import com.books.service.CartService;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
@@ -21,11 +22,13 @@ public class CartServiceImpl implements CartService {
     private final CartRepository cartRepository;
     private final CartItemRepository cartItemRepository;
     private final BookRepository bookRepository;
+    private final BookService bookService;
 
-    public CartServiceImpl(CartRepository cartRepository, CartItemRepository cartItemRepository, BookRepository bookRepository) {
+    public CartServiceImpl(CartRepository cartRepository, CartItemRepository cartItemRepository, BookRepository bookRepository, BookService bookService) {
         this.cartRepository = cartRepository;
         this.cartItemRepository = cartItemRepository;
         this.bookRepository = bookRepository;
+        this.bookService = bookService;
     }
 
     @Override

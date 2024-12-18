@@ -49,6 +49,7 @@ public class BookServiceImpl implements BookService {
                 .price(bookDTO.getPrice())
                 .category(category)
                 .imageURL(bookDTO.getImageURL())
+                .isActive(false)
                 .build();
 
         return bookRepository.save(book);
@@ -57,5 +58,15 @@ public class BookServiceImpl implements BookService {
     @Override
     public void deleteBook(Long id) {
         bookRepository.deleteById(id);
+    }
+
+    @Override
+    @Transactional
+    public void updateIsActiveBook(Long bookId, boolean isActive) {
+        Book book = bookRepository.findById(bookId)
+                .orElseThrow(() -> new RuntimeException("Book not found with id: " + bookId));
+
+        book.setIsActive(isActive);
+        bookRepository.save(book);
     }
 }

@@ -33,6 +33,11 @@ public class BookController {
         return bookService.createBook(bookDTO);
     }
 
+    @PatchMapping("/{id}/active")
+    public void updateActiveBook(@PathVariable Long id, @RequestParam boolean isActive) {
+        bookService.updateIsActiveBook(id, isActive);
+    }
+
     @DeleteMapping("/{id}")
     public void deleteBook(@PathVariable Long id) {
         bookService.deleteBook(id);
